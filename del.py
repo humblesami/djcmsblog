@@ -4,7 +4,7 @@ import shutil
 from pathlib import Path
 
 
-def remove_migrations1():
+def remove_migrations():
     cnt = 0
     res = glob.glob('*/migrations/*', recursive=True)
     for file_path in res:
@@ -18,7 +18,7 @@ def remove_migrations1():
             cnt += 1
     if os.path.exists('db.sqlite3'):
         os.remove('db.sqlite3')
-    print(f' {cnt} Migration files removed')
+    print(f'{cnt} migration files removed')
 
 
 def remove_file_by_extension(ext):
@@ -31,11 +31,11 @@ def remove_file_by_extension(ext):
     print(str(cnt) + ' ' + ext + ' files removed')
 
 
-def remove_migrations():
+def remove_migrations2():
     cnt = walk_dirs('.', 0)
     if os.path.exists('db.sqlite3'):
         os.remove('db.sqlite3')
-    print(f'{cnt} Migration files removed')
+    print(f'{cnt} migration files removed')
 
 
 def walk_dirs(path_now='.', cnt=0):

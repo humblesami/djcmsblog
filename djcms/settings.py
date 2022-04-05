@@ -187,7 +187,9 @@ INSTALLED_APPS = [
     'djangocms_googlemap',
     'djangocms_video',
     'djangocms_blog',
-    'djcms'
+    
+    # 'channels',
+    # 'knocker',
 ]
 
 LANGUAGES = (
@@ -261,5 +263,16 @@ PARLER_LANGUAGES = {
         ],
     }
 }
+
+# ASGI_APPLICATION = 'djcms.routing.application'
+# CHANNEL_LAYERS={
+#     'default': {
+#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#         'CONFIG': {
+#             'hosts': [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+#         },
+#     },
+# }
+
 META_SITE_PROTOCOL = 'http'
 META_SITE_DOMAIN = '127.0.0.1:8000'

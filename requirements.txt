@@ -21,4 +21,6 @@ Pillow>=3.0
 six
 pytz
 djangocms-blog==1.2.3
+django-knocker==0.4
+channels==3.0.4
 mysqlclient==2.0.3
