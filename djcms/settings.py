@@ -261,5 +261,5 @@ PARLER_LANGUAGES = {
         ],
     }
 }
-
-
+META_SITE_PROTOCOL = 'http'
+META_SITE_DOMAIN = '127.0.0.1:8000'

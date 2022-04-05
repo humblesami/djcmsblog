@@ -14,3 +14,5 @@ config.json
 /media
 ignored
 /django
+/cms
+/djangocms_blog
