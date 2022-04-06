@@ -8,5 +8,5 @@ class CustomPostAdmin(PostAdmin):
     list_display = ['id']
 
 
-admin.site.unregister(Post)
-admin.site.register(Post, CustomPostAdmin)
+# admin.site.unregister(Post)
+# admin.site.register(Post, CustomPostAdmin)
