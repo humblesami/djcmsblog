@@ -188,6 +188,7 @@ INSTALLED_APPS = [
     'djangocms_video',
     'djangocms_blog',
     
+    'news',
     # 'channels',
     # 'knocker',
 ]
