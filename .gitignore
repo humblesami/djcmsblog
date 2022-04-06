@@ -16,3 +16,4 @@ ignored
 /django
 /cms
 /djangocms_blog
+/meta

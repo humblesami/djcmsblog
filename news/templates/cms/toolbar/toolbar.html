@@ -20,14 +20,21 @@
             {% else %}
                 {% block toolbar_ul %}
                 <ul class="cms-toolbar-item cms-toolbar-item-navigation">
-                    {% for item in cms_toolbar.get_left_items %}
-                        {{ item.render }}
-                    {% endfor %}
+                    {% if request.user.id %}
                     <li class="">
                         <a href="/admin">
                             <span>Admin</span>
                         </a>
                     </li>
+                    <li class="">
+                        <a href="/admin/logout">
+                            <span>Sign Out</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% for item in cms_toolbar.get_left_items %}
+                        {{ item.render }}
+                    {% endfor %}
                     <li class="cms-toolbar-more">
                         <a href="#">
                             <span>{% trans "More" %}...<span class="cms-icon cms-icon-arrow"></span></span>

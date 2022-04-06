@@ -1,0 +1,8 @@
+
+a, button, input[type="button"]{
+    cursor: pointer;
+}
+
+div.cms .cms-toolbar-item-navigation li a{
+    cursor: pointer;
+}

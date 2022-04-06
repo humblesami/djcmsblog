@@ -1,0 +1,15 @@
+.container .nav li {display: block;position: relative;float: left;line-height: 30px;background-color: #4FA0D8;border-right:#CCC 1px solid;}
+.container .nav li a{margin: 10px;color: #FFFFFF;text-decoration: none;}
+
+.container .nav li>ul{
+    display: none;
+}
+.container .nav li:hover > ul {display:block;position:absolute;}
+.container .nav li li.child {display: none;}
+.container .nav li li.child li {background-color: #E4EFF7;line-height: 30px;border-bottom:#CCC 1px solid;border-right:#CCC 1px solid; width:100%;}
+.container .nav li li.child li a{color: #000000;}
+.container .nav li ul{list-style: none;margin: 0;padding: 0px; min-width:10em;}
+.container .nav li ul ul{left: 100%;top: 0;margin-left:1px;}
+/*li:hover {background-color: #95B4CA;}
+.container li li:hover {background-color: #F0F0F0;}*/
+.expand{font-size:12px;float:right;margin-right:5px;}
