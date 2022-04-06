@@ -140,6 +140,9 @@ MIDDLEWARE = [
 ]
 
 INSTALLED_APPS = [
+    'news',
+    'djangocms_blog',
+    
     'djangocms_admin_style',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -186,9 +189,6 @@ INSTALLED_APPS = [
     'djangocms_style',
     'djangocms_googlemap',
     'djangocms_video',
-    'djangocms_blog',
-    
-    'news',
     # 'channels',
     # 'knocker',
 ]
