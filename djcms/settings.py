@@ -239,6 +239,24 @@ DATABASES = {
     }
 }
 
+
+def configure_site(config_data):
+    from django.db import connection
+    cr = connection.cursor()
+    params = [config_data['domain']]
+    cr.execute("update django_site set `domain`=%s where id=1", params)
+    return 'done'
+
+
+config_path = str(BASE_DIR) + '/config.json'
+with open(config_path) as f:
+    file_text = f.read()
+import json
+config_data = json.loads(file_text)
+DATABASES['default'] = config_data[config_data['active_conn']]
+if not config_data['SITE_CONFIGURED']:
+    configure_site(config_data)
+
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
     'easy_thumbnails.processors.autocrop',
@@ -278,5 +296,5 @@ PARLER_LANGUAGES = {
 
 
 META_USE_SITES = True
-META_SITE_PROTOCOL = 'http'
-META_SITE_DOMAIN = '127.0.0.1:8000'
+META_SITE_PROTOCOL = config_data.get('META_SITE_PROTOCOL')
+META_SITE_DOMAIN = config_data.get('domain')
