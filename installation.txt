@@ -1,5 +1,20 @@
 pip freeze | xargs pip uninstall -y
+djangocms cm1
 pip install -r requirements.txt
+pip install mysqlclient==2.0.3
+in settings.py
+default:
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "cm1",
+        "USER": "root",
+        "PASSWORD": "123"
+
+
 mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+create databse cm1
+
+
+python manage.py createsuperuser
+         
 mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -D mysql -u root -p
 mysql -u root -p -e "flush tables;" mysql
