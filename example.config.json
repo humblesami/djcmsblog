@@ -2,12 +2,10 @@
     "env": "production",
     "local" : 0,
     "SITE_NAME": "eng",
-    "SITE_PATH": "/var/www/eng92",
-    "SITE_URL": "https://92newshd.tv",
-    "SERVER_URL": "https://admineng.92newshd.tv",
-    "SITE_CONFIGURED": 0,
-    "META_SITE_PROTOCOL": "https",
-    "domain": "127.0.0.1:8000",
+    "domain": "127.0.0.0:8000",
+    "META_SITE_PROTOCOL": "http",
+    "SITE_URL": "http://127.0.0.0:8000",
+    "SITE_PATH": "",
     "active_conn": "mysql",
     "postgresql": {
         "ENGINE": "django.db.backends.postgresql",
@@ -16,9 +14,8 @@
         "PASSWORD": "123"
     },
     "mysql": {
-        "CONN_MAX_AGE": 0,
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "djcms",
+        "NAME": "djs",
         "USER": "root",
         "PASSWORD": "123"
     }

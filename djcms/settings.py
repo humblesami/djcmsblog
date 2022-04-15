@@ -100,7 +100,7 @@ SITE_ID = 1
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'djcms', 'templates'),],
+        'DIRS': [os.path.join(BASE_DIR, 'djcms', 'templates'), ],
         'OPTIONS': {
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
@@ -239,24 +239,6 @@ DATABASES = {
     }
 }
 
-
-def configure_site(config_data):
-    from django.db import connection
-    cr = connection.cursor()
-    params = [config_data['domain']]
-    cr.execute("update django_site set `domain`=%s where id=1", params)
-    return 'done'
-
-
-config_path = str(BASE_DIR) + '/config.json'
-with open(config_path) as f:
-    file_text = f.read()
-import json
-config_data = json.loads(file_text)
-DATABASES['default'] = config_data[config_data['active_conn']]
-if not config_data['SITE_CONFIGURED']:
-    configure_site(config_data)
-
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
     'easy_thumbnails.processors.autocrop',
@@ -295,6 +277,19 @@ PARLER_LANGUAGES = {
 # }
 
 
+def start_up():
+    import json
+    
+    config_path = str(BASE_DIR) + '/config.json'
+    with open(config_path) as f:
+        file_text = f.read()
+    
+    conf_data = json.loads(file_text)
+    DATABASES['default'] = conf_data[conf_data['active_conn']]
+    return conf_data
+
+
+config_data = start_up()
+META_SITE_PROTOCOL = config_data['META_SITE_PROTOCOL']
+META_SITE_DOMAIN = config_data['domain']
 META_USE_SITES = True
-META_SITE_PROTOCOL = config_data.get('META_SITE_PROTOCOL')
-META_SITE_DOMAIN = config_data.get('domain')
