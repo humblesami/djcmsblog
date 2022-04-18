@@ -7,13 +7,22 @@ class StandardLanguage(models.Model):
     name = models.CharField(max_length=127)
     code = models.CharField(max_length=2)
 
-    class Meta:
-        # managed = False
-        db_table = 'standard_language'
-
     def __str__(self):
         return self.name
 
+
+class Menu(models.Model):
+    name = models.CharField(max_length=127)
+    prefix = models.CharField(max_length=127)
+    slug = models.SlugField(max_length=127, allow_unicode=True)
+    link = models.CharField(max_length=255)
+    priority = models.IntegerField(default=99)
+    active = models.BooleanField(default=True)
+    parent_id = models.ForeignKey('self', on_delete=models.RESTRICT)
+
+    def __str__(self):
+        return self.name
+    
 
 class SqlReport(models.Model):
     # pass
@@ -29,10 +38,6 @@ class SqlReport(models.Model):
     having = models.CharField(max_length=1023, null=True)
     page_size = models.IntegerField(null=True)
 
-    class Meta:
-        # managed = False
-        db_table = 'db_query'
-
     def __str__(self):
         return self.name
 
@@ -46,20 +51,12 @@ class SqlReport(models.Model):
 class RestrictedIp(models.Model):
     ip = models.CharField(max_length=31)
 
-    class Meta:
-        # managed = False
-        db_table = 'restricted_ip'
-
     def __str__(self):
         return self.ip
 
 
 class RestrictedGateWay(models.Model):
     address = models.CharField(max_length=31)
-
-    class Meta:
-        # managed = False
-        db_table = 'restricted_gate_way'
 
     def __str__(self):
         return self.address
@@ -85,19 +82,11 @@ class SiteSettings(models.Model):
     field_name = models.CharField(max_length=127, unique=True)
     field_value = models.CharField(max_length=1023)
 
-    class Meta:
-        # managed = False
-        db_table = 'site_settings'
-
 
 class RomanWord(models.Model):
     name = models.CharField(max_length=255, unique=True)
     improvement = models.CharField(max_length=255)
     lang = models.ForeignKey(StandardLanguage, on_delete=models.RESTRICT)
-
-    class Meta:
-        # managed = False
-        db_table = 'roman_word'
 
     def __str__(self):
         res = self.name
