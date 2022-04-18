@@ -1,0 +1,103 @@
+<div class="container p5" xmlns="http://www.w3.org/1999/html">
+    <script type="text/javascript" src="/static/website/libs/jquery-2.2.4.js"></script>
+    <link rel="preload" as="style" onload="this.rel='stylesheet'" href="/static/website/plugins/select2/select2.min.css">
+    <script defer src="/static/website/plugins/select2/select2.min.js"></script>
+    <script defer src="/static/website/plugins/ajax_form.js"></script>
+    <script defer src="/static/website/js/my_ajax.js?v=2"></script>
+    <link rel="preload" as="style" onload="this.rel='stylesheet'" href="/static/website/css/query-report.css">
+    <div class="p5">
+        <div class="error p5">{{error}}</div>
+        <label class="heading">Select Tables</label>
+        <select id="db_tables" multiple>
+            {% for table in db_tables %}
+            <option>{{table}}</option>
+            {% endfor %}
+        </select>
+        <h5>Table Columns</h5>
+        <div class="table_columns">
+            {% for table in selected_tables %}
+                <label>{{table}} columns</label>
+                <select class="db_columns {{table}}" multiple style="max-width:100%">
+                    {% for table in table.columns %}
+                    <option>{{column}}</option>
+                    {% endfor %}
+                </select>
+            {% endfor %}
+        </div>
+    </div>
+
+    <form action="/utils/save-sql-report">
+        <div>
+            <label>Report Name</label> <input required name="report_name" value="{{report_name}}" />
+        </div>
+        <div class="controls">
+            <label>columns</label>
+            <label class="selected_table_columns">
+                {% for table in selected_tables %}
+                    {% for column in table.columns %}
+                    <a class="column">{{column}}</a>
+                    {% endfor %}
+                {% endfor %}
+            </label>
+            <div>
+                <input name="columns">
+            </div>
+            <label>joins</label>
+            <div>
+                <input name="joins">
+            </div>
+            <label>where</label>
+            <div>
+                <input name="where">
+            </div>
+            <label>group_by</label>
+            <div>
+                <input name="group_by" maxlength="500">
+            </div>
+            <label>having</label>
+            <div>
+                <input name="having">
+            </div>
+            <label>order_by</label>
+            <div>
+                <input name="order_by">
+            </div>
+            <label>page_size</label>
+            <div>
+                <input name="page_size">
+            </div>
+        </div>
+        <div>
+            Saved Reports:
+        {% for repo in reports %}
+            <a href="/utils/query-page?report={{repo.slug}}">{{repo.name}}</a>
+        {% endfor %}
+        </div>
+        <div>
+            <input type="button" id="run_query" value="Run Query"/>
+            <button id="save_report" type="submit">Save Report</button>
+        </div>
+
+    </form>
+    <div class="error">{{error_message}}</div>
+    <table cellspacing="2" cellpadding="10" border="1">
+        <thead>
+            <tr>
+                {% for col in data.columns %}
+                    <th>{{col}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data.rows %}
+            <tr>
+                {% for cell in row %}
+                <td>{{cell}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script defer src="/static/website/js/sql_query.js"></script>

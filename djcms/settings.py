@@ -189,6 +189,7 @@ INSTALLED_APPS = [
     'djangocms_style',
     'djangocms_googlemap',
     'djangocms_video',
+    'website'
     # 'channels',
     # 'knocker',
 ]

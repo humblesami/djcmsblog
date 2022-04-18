@@ -1,0 +1,8 @@
+{% extends "website/base.html" %}
+{% block footer %}
+    {{ block.super }}
+    {% block form_libs %}
+        <script src="/static/website/libs/ajax_form.js"></script>
+        <script src="/static/website/js/my_ajax.js?v=2"></script>
+    {% endblock %}
+{% endblock %}

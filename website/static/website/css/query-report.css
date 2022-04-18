@@ -1,0 +1,41 @@
+.container{
+
+}
+.error{
+    color:red;
+}
+.p5{
+    padding: 5px;
+}
+button, input[type="button"]{
+    cursor: pointer;
+    padding: 5px;
+}
+form>div{
+    padding: 5px;
+    margin: 5px;
+}
+.controls>div{
+    margin: 5px 0;
+}
+#db_tables option, .db_columns option{
+    padding: 2px 5px;
+    margin-top: 3px;
+    cursor: pointer;
+    background: #eee;
+}
+
+span.select2.select2-container{
+    width: auto !important;
+    min-width: 100px;
+}
+.selected_table_columns .column{
+    padding: 5px;
+    margin-right: 5px;
+    background: #eee;
+    cursor: pointer;
+}
+.selected_table_columns .column.selected{
+    background: green;
+    color: white;
+}

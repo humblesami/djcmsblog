@@ -24,3 +24,6 @@ djangocms-blog==1.2.3
 django-knocker==0.4
 channels==3.0.4
 mysqlclient==2.0.3
+djangorestframework==3.13.1
+requests==2.27.1
+python-dateutil==2.8.2
