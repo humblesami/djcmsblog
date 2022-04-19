@@ -5,3 +5,7 @@ a, button, input[type="button"]{
 div.cms .cms-toolbar-item-navigation li a{
     cursor: pointer;
 }
+
+ul.as-selections.vTextField{
+    overflow: hidden;
+}
