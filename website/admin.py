@@ -83,7 +83,8 @@ class RestrictedGateWayAdmin(admin.ModelAdmin):
 
 
 class MenuAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'slug': ('name',), 'link': ('prefix', 'slug'), }
+    prepopulated_fields = {'slug': ('name',), }
+    list_display = ['name', 'link']
     
 
 admin.site.register(SiteSettings, SettingAdmin)

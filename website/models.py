@@ -13,15 +13,21 @@ class StandardLanguage(models.Model):
 
 class Menu(models.Model):
     name = models.CharField(max_length=127)
-    prefix = models.CharField(max_length=127)
+    prefix = models.CharField(max_length=127, null=True, blank=True)
     slug = models.SlugField(max_length=127, allow_unicode=True)
-    link = models.CharField(max_length=255)
     priority = models.IntegerField(default=99)
     active = models.BooleanField(default=True)
-    parent_id = models.ForeignKey('self', on_delete=models.RESTRICT)
+    parent_id = models.ForeignKey('self', on_delete=models.RESTRICT, null=True, blank=True)
+    link = models.CharField(max_length=255, blank=True)
 
     def __str__(self):
         return self.name
+    
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        self.link = '/' + ((str(self.prefix) + '/') if self.prefix else '') + str(self.slug)
+        res = super().save(force_insert, force_update, using, update_fields)
+        return res
     
 
 class SqlReport(models.Model):

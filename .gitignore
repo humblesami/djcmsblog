@@ -18,3 +18,5 @@ ignored
 /djangocms_blog
 /meta
 /menus
+/taggit
+/taggit_autosuggest

@@ -20,6 +20,7 @@ html5lib>=1.0.1
 Pillow>=3.0
 six
 pytz
+django-jquery-autosuggest==1.4.1
 djangocms-blog==1.2.3
 django-knocker==0.4
 channels==3.0.4
