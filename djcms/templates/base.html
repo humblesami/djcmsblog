@@ -15,7 +15,11 @@
         {% cms_toolbar %}
         {% block cms_header %}{% endblock %}
         <div class="container">
-            {% show_breadcrumb %}
+            <div class="breadcrumb_wrapper">
+                <ul>
+                    {% show_breadcrumb %}
+                </ul>
+            </div>
             {% block content %}{% endblock content %}
         </div>
         {% block cms_footer %}{% endblock %}

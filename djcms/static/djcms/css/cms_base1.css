@@ -9,3 +9,12 @@ div.cms .cms-toolbar-item-navigation li a{
 ul.as-selections.vTextField{
     overflow: hidden;
 }
+.breadcrumb_wrapper ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+.breadcrumb_wrapper ul li{
+    padding: 5px;
+}
