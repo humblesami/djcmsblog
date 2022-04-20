@@ -220,9 +220,9 @@ CMS_LANGUAGES = {
 
 CMS_TEMPLATES = (
     ## Customize this
-    ('cms_site/fullwidth.html', 'Fullwidth'),
-    ('cms_site/sidebar_left.html', 'Sidebar Left'),
-    ('cms_site/sidebar_right.html', 'Sidebar Right')
+    ('fullwidth.html', 'Fullwidth'),
+    ('sidebar_left.html', 'Sidebar Left'),
+    ('sidebar_right.html', 'Sidebar Right')
 )
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
