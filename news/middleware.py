@@ -1,5 +1,7 @@
 from django.utils.deprecation import MiddlewareMixin
 
+from website.models import Menu
+
 
 class LayoutMiddleWare(MiddlewareMixin):
     def process_response(self, request, response):
@@ -17,4 +19,5 @@ class LayoutMiddleWare(MiddlewareMixin):
         if not is_file:
             response['header_data'] = {}
             response['footer_data'] = {}
+        menus = Menu.objects.filter(active=1)
         return response

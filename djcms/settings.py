@@ -100,7 +100,7 @@ SITE_ID = 1
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'djcms', 'templates'), ],
+        'DIRS': [],
         'OPTIONS': {
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
@@ -142,8 +142,9 @@ MIDDLEWARE = [
 
 INSTALLED_APPS = [
     'news',
-    'djangocms_blog',
     'website',
+    'djangocms_blog',
+    'cms_site',
     'djangocms_admin_style',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -219,9 +220,9 @@ CMS_LANGUAGES = {
 
 CMS_TEMPLATES = (
     ## Customize this
-    ('fullwidth.html', 'Fullwidth'),
-    ('sidebar_left.html', 'Sidebar Left'),
-    ('sidebar_right.html', 'Sidebar Right')
+    ('cms_site/fullwidth.html', 'Fullwidth'),
+    ('cms_site/sidebar_left.html', 'Sidebar Left'),
+    ('cms_site/sidebar_right.html', 'Sidebar Right')
 )
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
