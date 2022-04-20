@@ -1,7 +1,12 @@
 (function(){
     let loc = window.location.pathname; // ===> /admin/elections/party/7/change/
     let arr = loc.split('/');
-
+    if(!arr.length){
+        return;
+    }
+    if(arr[0] != 'admin'){
+        return;
+    }
     let api_path = '/utils/get-next-prev-id';
     let full_url = window.location.origin + api_path;
     if(arr.length < 5)

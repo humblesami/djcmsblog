@@ -58,4 +58,5 @@ def walk_dirs(path_now='.', cnt=0):
 # remove_migrations()
 remove_file_by_extension('pyc')
 remove_file_by_extension('po')
+remove_file_by_extension('mo')
 print('done')
