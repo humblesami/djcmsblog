@@ -13,13 +13,12 @@
     </head>
     <body>
         {% cms_toolbar %}
+        {% block cms_header %}{% endblock %}
         <div class="container">
-            <ul class="nav">
-                {% show_menu 0 100 100 100 %}
-            </ul>
             {% show_breadcrumb %}
             {% block content %}{% endblock content %}
         </div>
+        {% block cms_footer %}{% endblock %}
         {% render_block "js" %}
     </body>
 </html>

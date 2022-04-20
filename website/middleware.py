@@ -1,6 +1,15 @@
 from django.utils import timezone
 from django.utils.deprecation import MiddlewareMixin
 from .utils import get_session_timezone
+from django.conf import settings
+from django.http import HttpResponse
+
+
+class LayoutMiddleWare(MiddlewareMixin):
+    def process_response(self, request, response):
+        response['header_data'] = {}
+        response['footer_data'] = {}
+        return response
 
 
 class TimezoneMiddleware(MiddlewareMixin):
@@ -23,10 +32,6 @@ class CacheMiddleware(MiddlewareMixin):
             cache = f'public, max-age={180}'
             response['Cache-Control'] = cache
         return response
-
-
-from django.conf import settings
-from django.http import HttpResponse
 
 
 class ExceptionMiddleware(object):
