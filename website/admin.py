@@ -4,7 +4,7 @@ from django.contrib.auth import user_logged_in
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from .models import SiteSettings, TimeZone, UserTimeZone, RestrictedIp, RestrictedGateWay, RomanWord, Menu
+from .models import SiteSettings, TimeZone, UserTimeZone, RestrictedIp, RestrictedGateWay, RomanWord, Menu, MenuItem
 from .utils import set_session_timezone
 
 
@@ -83,12 +83,17 @@ class RestrictedGateWayAdmin(admin.ModelAdmin):
 
 
 class MenuAdmin(admin.ModelAdmin):
+    list_display = ['name']
+    
+
+class MenuItemAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',), }
     list_display = ['name', 'link']
     
 
 admin.site.register(SiteSettings, SettingAdmin)
 admin.site.register(Menu, MenuAdmin)
+admin.site.register(MenuItem, MenuItemAdmin)
 admin.site.register(RomanWord, RomanWordAdmin)
 admin.site.register(TimeZone, TimeZoneAdmin)
 admin.site.register(UserTimeZone, UserTimeZoneAdmin)

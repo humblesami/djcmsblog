@@ -13,11 +13,20 @@ class StandardLanguage(models.Model):
 
 class Menu(models.Model):
     name = models.CharField(max_length=127)
+    active = models.BooleanField(default=True)
+    parent_id = models.ForeignKey('self', on_delete=models.RESTRICT, null=True, blank=True)
+    
+    def __str__(self):
+        return self.name
+    
+
+class MenuItem(models.Model):
+    name = models.CharField(max_length=127)
     prefix = models.CharField(max_length=127, null=True, blank=True)
     slug = models.SlugField(max_length=127, allow_unicode=True)
     priority = models.IntegerField(default=99)
     active = models.BooleanField(default=True)
-    parent_id = models.ForeignKey('self', on_delete=models.RESTRICT, null=True, blank=True)
+    menu_id = models.ForeignKey(Menu, on_delete=models.RESTRICT, null=True, blank=True)
     link = models.CharField(max_length=255, blank=True)
 
     def __str__(self):
