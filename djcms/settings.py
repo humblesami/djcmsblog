@@ -295,3 +295,13 @@ config_data = start_up()
 META_SITE_PROTOCOL = config_data['META_SITE_PROTOCOL']
 META_SITE_DOMAIN = config_data['domain']
 META_USE_SITES = True
+
+from cms.utils import conf
+
+
+def get_templates():
+    templates = conf.get_templates()
+    return [(x, str(y)) for x, y in templates]
+
+
+conf.COMPLEX['TEMPLATES'] = get_templates
