@@ -1,1 +1,21 @@
-<h2>Header File</h2>
+<ul>
+    {% for node in main_menu.nodes.all %}
+        <li>
+            <a href="{{node.link}}">{{node.name}}</a>
+        </li>
+    {% endfor %}
+
+    {% for child_menu in child_menus.all %}
+        <li>
+            {{child_menu.name}}
+            <ul>
+                {% for node in child_menu.nodes.all %}
+                    <li>
+                        <a href="{{node.link}}">{{node.name}}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+</ul>
+<h4>End Menus</h4>

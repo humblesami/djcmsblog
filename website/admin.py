@@ -88,7 +88,7 @@ class MenuAdmin(admin.ModelAdmin):
 
 class MenuItemAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',), }
-    list_display = ['name', 'link']
+    list_display = ['link', 'name', 'menu_id']
     
 
 admin.site.register(SiteSettings, SettingAdmin)
