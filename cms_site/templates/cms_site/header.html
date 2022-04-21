@@ -1,21 +1,73 @@
-<ul>
-    {% for node in main_menu.nodes.all %}
-        <li>
-            <a href="{{node.link}}">{{node.name}}</a>
-        </li>
-    {% endfor %}
+<style>
+    nav.main ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color:white;
+      background: #1bc2a2;
+    }
+    nav.main ul li {
+      display: block;
+      position: relative;
+      float: left;
+      background: #1bc2a2;
+    }
+    nav.main li ul { display: none; }
+    nav.main>ul li {
+        color: #fff;
+      padding: 1em;
+      display: block;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    nav.main ul li a {
+      color: #fff;
+      padding: 1em;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    nav.main ul li a:hover { background: #2c3e50; }
+    nav.main li:hover > ul {
+      display: block;
+      position: absolute;
+    }
+    nav.main li:hover li { float: none; }
+    nav.main li:hover a { background: #1bc2a2; }
+    nav.main li:hover li a:hover { background: #2c3e50; }
+    nav.main .main-navigation li ul li { border-top: 0; }
+    nav.main ul ul ul {
+      left: 100%;
+      top: 0;
+    }
+    nav.main ul:before,
+    nav.main ul:after {
+      content: " ";
+      display: table;
+    }
+    nav.main ul:after { clear: both; }
+    nav.main li.has_children{
 
-    {% for child_menu in child_menus.all %}
-        <li>
-            {{child_menu.name}}
-            <ul>
-                {% for node in child_menu.nodes.all %}
-                    <li>
-                        <a href="{{node.link}}">{{node.name}}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </li>
-    {% endfor %}
-</ul>
-<h4>End Menus</h4>
+    }
+</style>
+<nav class="main">
+    <ul class="main-navigation">
+        {% for node in main_menu.nodes.all %}
+            <li>
+                <a href="{{node.link}}">{{node.name}}</a>
+            </li>
+        {% endfor %}
+
+        {% for child_menu in child_menus.all %}
+            <li class="has_children">
+                {{child_menu.name}}
+                <ul>
+                    {% for node in child_menu.nodes.all %}
+                        <li>
+                            <a href="{{node.link}}">{{node.name}}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>
