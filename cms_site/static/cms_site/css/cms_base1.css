@@ -18,3 +18,23 @@ ul.as-selections.vTextField{
 .breadcrumb_wrapper ul li{
     padding: 5px;
 }
+
+.post-detail.tags{
+    margin: 0;
+    list-style: none;
+    display: flex;
+    padding: 0px;
+    margin-bottom: 10px;
+}
+.post-detail.tags li{
+    margin-right: 5px;
+}
+.post-detail.tags li a{
+    color: #2e3192;
+    border: 1px solid #2e3192;
+    border-radius: 0;
+    padding: 0.25rem 0.5rem;
+    line-height: 1.5;
+    text-align: center;
+    vertical-align: middle;
+}
