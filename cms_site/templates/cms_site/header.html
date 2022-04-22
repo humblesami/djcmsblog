@@ -1,52 +1,28 @@
 <style>
     nav.main ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      color:white;
-      background: #1bc2a2;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        color:white;
+        background: #1bc2a2;
+        display: flex;
     }
     nav.main ul li {
-      display: block;
-      position: relative;
-      float: left;
-      background: #1bc2a2;
+        position: relative;
+        background: #1bc2a2;
     }
     nav.main li ul { display: none; }
-    nav.main>ul li {
-        color: #fff;
-      padding: 1em;
-      display: block;
-      white-space: nowrap;
-      text-decoration: none;
-    }
     nav.main ul li a {
-      color: #fff;
-      padding: 1em;
-      white-space: nowrap;
-      text-decoration: none;
+        color: #fff;
+        padding: 1em;
+        display: inline-block;
+        white-space: nowrap;
+        text-decoration: none;
     }
-    nav.main ul li a:hover { background: #2c3e50; }
+    nav.main ul li a:not(.no-link):hover { background: #2c3e50; }
     nav.main li:hover > ul {
-      display: block;
-      position: absolute;
-    }
-    nav.main li:hover li { float: none; }
-    nav.main li:hover a { background: #1bc2a2; }
-    nav.main li:hover li a:hover { background: #2c3e50; }
-    nav.main .main-navigation li ul li { border-top: 0; }
-    nav.main ul ul ul {
-      left: 100%;
-      top: 0;
-    }
-    nav.main ul:before,
-    nav.main ul:after {
-      content: " ";
-      display: table;
-    }
-    nav.main ul:after { clear: both; }
-    nav.main li.has_children{
-
+        display: block;
+        position: absolute;
     }
 </style>
 <nav class="main">
@@ -59,7 +35,7 @@
 
         {% for child_menu in child_menus.all %}
             <li class="has_children">
-                {{child_menu.name}}
+                <a class="no-link">{{child_menu.name}}</a>
                 <ul>
                     {% for node in child_menu.nodes.all %}
                         <li>
