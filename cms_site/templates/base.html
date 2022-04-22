@@ -5,21 +5,19 @@
         <title>{% block title %}This is my new project home page{% endblock title %}</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
         {% render_block "css" %}
-        <link rel="stylesheet" href="/static/cms_site/css/cms_base1.css" />
-<!--        <link rel="stylesheet" href="/static/cms_site/css/menu.css">-->
     </head>
     <body>
         {% cms_toolbar %}
-        {% include 'cms_site/header.html' %}
+        {% include 'website/header.html' %}
+        <div class="breadcrumb_wrapper">
+            <ul>
+                {% show_breadcrumb %}
+            </ul>
+        </div>
         <div class="container">
-            <div class="breadcrumb_wrapper">
-                <ul>
-                    {% show_breadcrumb %}
-                </ul>
-            </div>
             {% block content %}{% endblock content %}
         </div>
-        {% include 'cms_site/footer.html' %}
+        {% include 'website/footer.html' %}
         {% render_block "js" %}
     </body>
 </html>

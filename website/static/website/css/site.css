@@ -1,0 +1,20 @@
+.breadcrumb_wrapper{
+    padding: 5px;
+    background: #eee;
+    color: #2e3192;
+}
+.br-cw{
+    background: red;
+    color: white;
+}
+.footer_container{
+    background: black;
+    color: white;
+}
+.footer_container a{
+    color: white;
+}
+
+.footer_container a:hover{
+    color: white;
+}

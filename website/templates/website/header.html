@@ -1,0 +1,68 @@
+<header>
+    <script src="/static/website/plugins/web_top.js?v=3"></script>
+    <div id="page_loader" style="display:none">
+        <style>
+            body{padding: 0; margin: 0}
+            #page_loader{
+                display: flex; height: 100vh;width: 100vw;
+                justify-content: center;align-items: center;
+                left: 0;top: 0;z-index: 999999;
+                background: #EEEEEE;
+            }
+            .hide_on_click_away:not(.collapse) .collapse:not(.show),.modal{display:none}
+            #page_loader .loader {
+                border: 16px solid #f3f3f3; /* Light grey */
+                border-top: 16px solid #3498db; /* Blue */
+                border-radius: 50%;
+                width: 120px;
+                height: 120px;
+                animation: spin 2s linear infinite;
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            .google-adcontainer,.google-adcontainer .adsbygoogle
+            {width:100%;height:auto!important}.google-adcontainer .adsbygoogle{display:block}
+        </style>
+        <div class="loader"></div>
+    </div>
+    <!-- <script src="/static/js/jquery.min.js"></script> -->
+    <link rel="preload" as="style" onload="show_dom(this)" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/website/css/cms_base.css" />
+    <link rel="stylesheet" href="/static/website/css/site.css" />
+    <link rel="stylesheet" href="/static/website/css/menu.css" />
+
+    <link rel="preload" as="style" onload="show_dom(this)" href="/static/website/css/style92.css?v=6">
+    <link rel="preload" as="style" onload="show_dom(this)" href="/static/website/css/choose_font.css?v=2">
+    <link rel="preload" as="style" onload="show_dom(this)" href="/static/website/css/fonts.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>window.lazy_load_images = function(){}</script>
+    <script async src="/static/website/plugins/lazy_load.js?v=3"></script>
+    <script defer src="/static/website/plugins/web_utils_file.js?v=2"></script>
+
+    <nav class="main">
+        <ul class="main-navigation">
+            {% for node in main_menu.nodes.all %}
+                <li>
+                    <a href="{{node.link}}">{{node.name}}</a>
+                </li>
+            {% endfor %}
+
+            {% for child_menu in child_menus.all %}
+                <li class="has_children">
+                    <a class="no-link">{{child_menu.name}}</a>
+                    <ul>
+                        {% for node in child_menu.nodes.all %}
+                            <li>
+                                <a href="{{node.link}}">{{node.name}}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</header>

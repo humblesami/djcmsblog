@@ -16,9 +16,23 @@ class LayoutMiddleWare(MiddlewareMixin):
         additional['main_menu'] = main_menu
         return additional
     
+    @classmethod
+    def get_translations(cls):
+        labels = {
+            'footer': {
+                'contact': {'0': 'Contact0', '1': 'Contact1'}
+            },
+            'contact_us': {
+                'heading': 'Contact'
+            }
+        }
+        return labels
+    
     def process_template_response(self, request, response):
         additional = self.add_menu_to_response()
         response.context_data.update(additional)
+        labels = self.__class__.get_translations()
+        response.context_data.update(labels)
         return response
     
     def process_response(self, request, response):

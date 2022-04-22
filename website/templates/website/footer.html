@@ -1,0 +1,97 @@
+<footer>
+    <div class="footer_container" style="padding: 0 5px;">
+        <!--footer details-->
+        <div class="page-container">
+            <div class="row">
+                <!--Contact Details-->
+                <div class="col-md-3 col-sm-6 ">
+                    <div class="d-flex">
+                        <h4 class="news-heading">{{translations.footer.contact.0}}</h4>
+                    </div>
+                    <div class="row contact-details-container">
+                        <div class="col-md-12 contact-details ">
+                            <p>
+                                <span>info@92newshd.tv</span>
+                                <a href="/contact-us" class="contact-us-link">{{translations.contact_us.heading}}</a>
+                            </p>
+                            <p>
+                                <a href="https://api.whatsapp.com/send?phone=" target="_blank" rel="noopener">
+                                    <span><i class="fab fa-whatsapp"></i></span>
+                                </a>
+                                <span class="ml-3">03341920278</span>
+                                <span class="ml-3">(042)35779311</span>
+                            </p>
+                        </div>
+<!--                        <div class="col-md-12">-->
+<!--                            <div class="d-flex app-store-links">-->
+<!--                                <div class="">-->
+<!--                                    <a href="https://apps.apple.com/pk/app/92-news-hd-plus/id1248053879" rel="noopener" target="_blank">-->
+<!--                                        <img src="/static/gui/images/waiting-image.svg" data-src="/static/gui/images/app-store.webp" class="app-store" alt="92 News Hd app at Apple Store"></a>-->
+<!--                                </div>-->
+<!--                                <div class="">-->
+<!--                                    <a href="https://play.google.com/store/apps/details?id=com.news92.live" rel="noopener" target="_blank">-->
+<!--                                        <img src="/static/gui/images/waiting-image.svg" data-src="/static/gui/images/google-play.webp" class="app-store" alt="92 News Hd app at Google Play Store"></a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                    </div>
+                </div>
+                <!-- Contact Details -->
+                <div class="offset-md-3 col-md-4 col-sm-6">
+                    <div class="d-flex">
+                        <h4 class="news-heading">{{translations.footer.contact.1}}</h4>
+                    </div>
+                    <div class="row contacts-container">
+                        <div class="col-md-12 sm-details">
+                            <p>
+                                <a href="https://www.facebook.com/92NewsHD" target="_blank" rel="noopener">
+                                    <span><i class="fab fa-facebook-f"></i></span>
+                                    <span class="ml-3">facebook.com/92NewsHD</span>
+                                </a>
+                            </p>
+                        </div>
+                        <div class="col-md-12 sm-details">
+                            <p>
+                                <a href="https://twitter.com/92newschannel" target="_blank" rel="noopener">
+                                    <span><i class="fab fa-twitter"></i></span>
+                                    <span class="ml-3">twitter.com/92newschannel</span>
+                                </a>
+                            </p>
+                        </div>
+
+                        <div class="col-md-12 sm-details">
+                            <p>
+                                <a href="https://www.youtube.com/channel/UCsgC5cbz3DE2Shh34gNKiog" target="_blank" rel="noopener">
+                                    <span><i class="fab fa-youtube"></i></span>
+                                    <span class="ml-3">youtube.com/92newshdTv</span>
+                                </a>
+                            </p>
+                        </div>
+                        <div class="col-md-12 sm-details">
+                            <p>
+                                <a href="https://www.instagram.com/92news_official" target="_blank" rel="noopener">
+                                    <span><i class="fab fa-instagram"></i></span>
+                                    <span class="ml-3">instagram.com/92news_official</span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script async src="/static/website/js/footer.js?v=3"></script>
+        <div id="footer_includes">
+            <link rel="preload" as="style" onload="this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/jquery-floating-social-share@2.4.0/dist/jquery.floating-social-share.min.css">
+            <script defer src="https://cdn.jsdelivr.net/npm/jquery-floating-social-share@2.4.0/dist/jquery.floating-social-share.min.js"></script>
+        </div>
+    </div>
+
+    <div class="footer-end br-cw text-center">
+        92 News HD Plus All Rights Reserved @ <span class="cur_year"></span>
+    </div>
+    <script>
+        (function(){
+            $('.cur_year').html(new Date().getFullYear());
+        })()
+    </script>
+</footer>
