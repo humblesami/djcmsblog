@@ -7,7 +7,10 @@ body.rtl .content, body.rtl .title, body.rtl, body.rtl,
 body.rtl h1, body.rtl h2, body.rtl h3, body.rtl h4, body.rtl h5, body.rtl h6{
     line-height: 1.7;
 }
-
+ul{
+    list-style:none;
+    padding:0;
+}
 
 h5{
     font-weight: bold;
@@ -16,7 +19,6 @@ h5{
 a:hover{
     color: black;
 }
-
 img{
     width: 100%;
 }

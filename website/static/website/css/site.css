@@ -18,3 +18,6 @@
 .footer_container a:hover{
     color: white;
 }
+article{
+    margin-bottom: 10px;
+}

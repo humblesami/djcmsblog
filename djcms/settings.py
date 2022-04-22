@@ -18,7 +18,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -27,28 +26,10 @@ SECRET_KEY = 'q%v3*2@y8i*$62w4jrq3j6%vosid5tcombs7=!^qd@qo+2*$8u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = []
-
-
 # Application definition
-
-
-
-
-
 ROOT_URLCONF = 'djcms.urls'
-
-
-
 WSGI_APPLICATION = 'djcms.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -72,16 +53,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'Asia/Karachi'
-
-USE_I18N = False
-
-USE_L10N = True
-
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -195,29 +169,6 @@ INSTALLED_APPS = [
     # 'knocker',
 ]
 
-LANGUAGES = (
-    ## Customize this
-    ('en', gettext('en')),
-)
-
-CMS_LANGUAGES = {
-    ## Customize this
-    1: [
-        {
-            'code': 'en',
-            'name': gettext('en'),
-            'redirect_on_fallback': True,
-            'public': True,
-            'hide_untranslated': False,
-        },
-    ],
-    'default': {
-        'redirect_on_fallback': True,
-        'public': True,
-        'hide_untranslated': False,
-    },
-}
-
 CMS_TEMPLATES = (
     ## Customize this
     ('fullwidth.html', 'Fullwidth'),
@@ -295,6 +246,32 @@ config_data = start_up()
 META_SITE_PROTOCOL = config_data['META_SITE_PROTOCOL']
 META_SITE_DOMAIN = config_data['domain']
 META_USE_SITES = True
+
+LANGUAGES = (
+    ## Customize this
+    ('en', gettext('en')),
+)
+
+CMS_LANGUAGES = {
+    ## Customize this
+    1: [
+        {
+            'code': 'en',
+            'name': gettext('en'),
+            'redirect_on_fallback': True,
+            'public': True,
+            'hide_untranslated': False,
+        },
+    ],
+    'default': {
+        'redirect_on_fallback': True,
+        'public': True,
+        'hide_untranslated': False,
+    },
+}
+LANGUAGE_CODE = 'en'
+USE_I18N = False
+USE_L10N = True
 
 from cms.utils import conf
 
