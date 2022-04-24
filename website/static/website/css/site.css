@@ -1,3 +1,7 @@
+.image-center{
+  object-position: center;
+  object-fit: cover;
+}
 .breadcrumb_wrapper{
     padding: 5px;
     background: #eee;
