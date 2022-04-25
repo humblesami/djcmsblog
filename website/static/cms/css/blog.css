@@ -1,0 +1,17 @@
+.blog-visual.detail{
+	border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eee;
+    padding: 2px;
+}
+.blog-visual.detail img {
+  width: auto;
+  max-width: 100%;
+  max-height:100%;
+}
+.post-item a:hover{
+    text-decoration: none;
+    color: red;
+}

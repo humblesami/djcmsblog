@@ -6,7 +6,6 @@ function show_dom(el)
     el.onload=null;if(window.dom_styled != 2) return ;
     for(let fun of window.on_dom_shown_functions){fun();}
     window.dom_shown = 1;
-    document.getElementById('page_loader').style.display='none';
     //console.log('Page loaded after all on dom shown functions');
 }
 function disable_ads(){

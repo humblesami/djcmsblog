@@ -3,6 +3,15 @@
 
 {% block canonical_url %}<link rel="canonical" href="{{ meta.url }}"/>{% endblock canonical_url %}
 {% block title %}{{ post.get_title }}{% endblock %}
+<link rel="stylesheet" href="/static/website/css/three_columns.css" />
+
+
+<div class="three_columns">
+    <div class="column-left"></div>
+    <div class="column-middle"></div>
+    <div class="column-right"></div>
+</div>
+
 
 {% block content_blog %}{% spaceless %}
 <article id="post-{{ post.slug }}" class="post-item post-detail">
