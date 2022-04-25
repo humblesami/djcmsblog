@@ -29,3 +29,4 @@ djangorestframework==3.13.1
 requests==2.27.1
 python-dateutil==2.8.2
 django-treebeard==4.4
+#djangocms-ads==1.0.1

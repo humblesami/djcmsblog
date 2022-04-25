@@ -116,6 +116,7 @@ MIDDLEWARE = [
 
 INSTALLED_APPS = [
     'news',
+    # 'djangocms_ads',
     'website',
     'djangocms_blog',
     'cms_site',
