@@ -3,56 +3,56 @@
 
 {% block canonical_url %}<link rel="canonical" href="{{ meta.url }}"/>{% endblock canonical_url %}
 {% block title %}{{ post.get_title }}{% endblock %}
+{% block content_blog %}
 <link rel="stylesheet" href="/static/website/css/three_columns.css" />
-
-
 <div class="three_columns">
-    <div class="column-left"></div>
-    <div class="column-middle"></div>
-    <div class="column-right"></div>
-</div>
-
-
-{% block content_blog %}{% spaceless %}
-<article id="post-{{ post.slug }}" class="post-item post-detail">
-    <header>
-        <h2>{% render_model post "title" %}</h2>
-        {% if post.subtitle %}
-            <h3>{% render_model post "subtitle" %}</h3>
-        {% endif %}
-    </header>
-    {% if not post.main_image_id %}
-        <div class="row">
-            <div class="col-12 blog-visual media detail">
-                {% render_placeholder post.media %}
+    <div class="column-left">Left Column</div>
+    <div class="column-middle">
+        <article id="post-{{ post.slug }}" class="ham post-item post-detail">
+            <header>
+                <h2>{% render_model post "title" %}</h2>
+                {% if post.subtitle %}
+                    <h3>{% render_model post "subtitle" %}</h3>
+                {% endif %}
+            </header>
+            {% if not post.main_image_id %}
+                <div class="row">
+                    <div class="col-12 blog-visual media detail">
+                        {% render_placeholder post.media %}
+                    </div>
+                </div>
+            {% else %}
+            <div class="blog-visual main detail">
+                {% thumbnail post.main_image post.full_image_options.size crop=post.full_image_options.crop upscale=post.full_image_options.upscale subject_location=post.main_image.subject_location  as thumb %}
+                <img class="image-center" src="{{ post.main_image.url|default:'' }}" alt="{{ post.main_image.default_alt_text }}" width="{{ thumb.width }}" height="{{ thumb.height }}" />
             </div>
-        </div>
-    {% else %}
-    <div class="blog-visual main detail">
-        {% thumbnail post.main_image post.full_image_options.size crop=post.full_image_options.crop upscale=post.full_image_options.upscale subject_location=post.main_image.subject_location  as thumb %}
-        <img class="image-center" src="{{ post.main_image.url|default:'' }}" alt="{{ post.main_image.default_alt_text }}" width="{{ thumb.width }}" height="{{ thumb.height }}" />
+            {% endif %}
+
+            {% block blog_meta %}
+                {% include "djangocms_blog/includes/blog_meta.html" %}
+            {% endblock %}
+            <div class="blog-lead">
+                {% if not TRUNCWORDS_COUNT %}
+                    {% render_model post "abstract" "" "" "safe" %}
+                {% else %}
+                    {% render_model post "abstract" "" "" "truncatewords_html:TRUNCWORDS_COUNT|safe"  %}
+                {% endif %}
+            </div>
+            {% if view.liveblog_enabled %}
+                {% include "liveblog/includes/post_detail.html" %}
+            {% endif %}
+            {% if post.related.exists %}
+                <section class="post-detail-list">
+                {% for related in post.related.all %}
+                    {% include "djangocms_blog/includes/blog_item.html" with post=related image="true" TRUNCWORDS_COUNT=TRUNCWORDS_COUNT %}
+                {% endfor %}
+                </section>
+            {% endif %}
+        </article>
     </div>
-    {% endif %}
-    {% endspaceless %}
-    {% block blog_meta %}
-        {% include "djangocms_blog/includes/blog_meta.html" %}
-    {% endblock %}
-    <div class="blog-lead">
-        {% if not TRUNCWORDS_COUNT %}
-            {% render_model post "abstract" "" "" "safe" %}
-        {% else %}
-            {% render_model post "abstract" "" "" "truncatewords_html:TRUNCWORDS_COUNT|safe"  %}
-        {% endif %}
-    </div>
-    {% if view.liveblog_enabled %}
-        {% include "liveblog/includes/post_detail.html" %}
-    {% endif %}
-    {% if post.related.exists %}
-        <section class="post-detail-list">
-        {% for related in post.related.all %}
-            {% include "djangocms_blog/includes/blog_item.html" with post=related image="true" TRUNCWORDS_COUNT=TRUNCWORDS_COUNT %}
-        {% endfor %}
-        </section>
-    {% endif %}
-</article>
+    <div class="column-right">Right Column</div>
+</div>
 {% endblock content_blog %}
+
+
+

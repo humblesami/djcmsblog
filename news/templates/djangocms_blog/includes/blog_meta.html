@@ -1,15 +1,4 @@
 {% load i18n easy_thumbnails_tags cms_tags %}
-<style>
-    .post-detail.tags{
-        margin: 10px 0;
-    }
-    .post-detail.publish-info{
-        display: flex;
-    }
-    .post-detail.publish-info li{
-        margin-right: 10px;
-    }
-</style>
 <ul class="post-detail tags">
     {% if post.categories.exists %}
         {% for category in post.categories.all %}

@@ -15,3 +15,12 @@
     text-decoration: none;
     color: red;
 }
+.post-detail.tags{
+    margin: 10px 0;
+}
+.post-detail.publish-info{
+    display: flex;
+}
+.post-detail.publish-info li{
+    margin-right: 10px;
+}
