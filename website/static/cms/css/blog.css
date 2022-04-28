@@ -1,4 +1,4 @@
-.blog-visual.detail{
+.blog-visual.ic{
 	border: 1px solid #ddd;
     display: flex;
     align-items: center;
@@ -6,7 +6,7 @@
     background: #181818;
     padding: 2px;
 }
-.blog-visual.detail img {
+.blog-visual.ic img {
   width: auto;
   max-width: 100%;
   max-height:100%;

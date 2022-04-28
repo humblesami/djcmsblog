@@ -8,7 +8,7 @@
 <div class="three_columns">
     <div class="column-left">Left Column</div>
     <div class="column-middle">
-        <article id="post-{{ post.slug }}" class="ham post-item post-detail">
+        <article id="post-{{ post.slug }}" class="ham post-detail">
             <header>
                 <h2>{% render_model post "title" %}</h2>
                 {% if post.subtitle %}
@@ -18,12 +18,12 @@
             <div class="full_image">
                 {% if not post.main_image_id %}
                     <div class="row">
-                        <div class="col-12 blog-visual media detail">
+                        <div class="col-12 blog-visual media ic">
                             {% render_placeholder post.media %}
                         </div>
                     </div>
                 {% else %}
-                <div class="blog-visual main detail">
+                <div class="blog-visual main ic">
                     {% thumbnail post.main_image post.full_image_options.size crop=post.full_image_options.crop upscale=post.full_image_options.upscale subject_location=post.main_image.subject_location  as thumb %}
                     <img class="image-center" src="{{ post.main_image.url|default:'' }}" alt="{{ post.main_image.default_alt_text }}" width="{{ thumb.width }}" height="{{ thumb.height }}" />
                 </div>
@@ -31,7 +31,7 @@
             </div>
             <script>
                 $(function(){
-                    web_utils.fit_image('.full_image .blog-visual.detail');
+                    web_utils.fit_image('.full_image .blog-visual.ic');
                 })
             </script>
             {% block blog_meta %}

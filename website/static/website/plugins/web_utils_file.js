@@ -367,7 +367,7 @@ let web_utils = {
         return url+'';
     },
     fit_image: function(selector){
-        let el1 = $(selector).first();
+        let el1 = $(selector).last();
         if(el1.length){
             let width = el1.width();
             let height = width * 0.588;
