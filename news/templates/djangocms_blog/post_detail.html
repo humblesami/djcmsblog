@@ -15,19 +15,25 @@
                     <h3>{% render_model post "subtitle" %}</h3>
                 {% endif %}
             </header>
-            {% if not post.main_image_id %}
-                <div class="row">
-                    <div class="col-12 blog-visual media detail">
-                        {% render_placeholder post.media %}
+            <div class="full_image">
+                {% if not post.main_image_id %}
+                    <div class="row">
+                        <div class="col-12 blog-visual media detail">
+                            {% render_placeholder post.media %}
+                        </div>
                     </div>
+                {% else %}
+                <div class="blog-visual main detail">
+                    {% thumbnail post.main_image post.full_image_options.size crop=post.full_image_options.crop upscale=post.full_image_options.upscale subject_location=post.main_image.subject_location  as thumb %}
+                    <img class="image-center" src="{{ post.main_image.url|default:'' }}" alt="{{ post.main_image.default_alt_text }}" width="{{ thumb.width }}" height="{{ thumb.height }}" />
                 </div>
-            {% else %}
-            <div class="blog-visual main detail">
-                {% thumbnail post.main_image post.full_image_options.size crop=post.full_image_options.crop upscale=post.full_image_options.upscale subject_location=post.main_image.subject_location  as thumb %}
-                <img class="image-center" src="{{ post.main_image.url|default:'' }}" alt="{{ post.main_image.default_alt_text }}" width="{{ thumb.width }}" height="{{ thumb.height }}" />
+                {% endif %}
             </div>
-            {% endif %}
-
+            <script>
+                $(function(){
+                    web_utils.set_image_container_height('.full_image .blog-visual.detail');
+                })
+            </script>
             {% block blog_meta %}
                 {% include "djangocms_blog/includes/blog_meta.html" %}
             {% endblock %}

@@ -8,6 +8,7 @@ function show_dom(el)
     window.dom_shown = 1;
     //console.log('Page loaded after all on dom shown functions');
 }
+
 function disable_ads(){
     window.adsbygoogle = {
         enabled: true,
@@ -24,6 +25,7 @@ if (host === "localhost" || host === '127.0.0.1') {
     window.is_localhost = 1;
     disable_ads();
 }
+
 (function (){
     let user_active = 0;
     let activation_waiters = [];
@@ -84,3 +86,13 @@ if (host === "localhost" || host === '127.0.0.1') {
     }
     add_listeners(['mousemove'], on_mouse_move);
 })();
+var top_utils = {
+    set_image_container_height: function(selector){
+        let el1 = $(selector).first();
+        if(el1.length){
+            let width = el1.width();
+            let height = width * 0.588;
+            $(selector).height(height);
+        }
+    },
+}

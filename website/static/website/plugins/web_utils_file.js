@@ -366,7 +366,18 @@ let web_utils = {
         }
         return url+'';
     },
-
+    set_image_container_height: function(selector){
+        let el1 = $(selector).first();
+        if(el1.length){
+            let width = el1.width();
+            let height = width * 0.588;
+            console.log(selector, width, height);
+            $(selector).height(height);
+        }
+        else{
+            console.log('No '+selector+ ' found');
+        }
+    },
     getLocalItemValue: function (key) {
         let item = this.getLocalItemWithExpiry(key);
         if(item && item.value)
