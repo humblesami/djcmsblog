@@ -47,12 +47,9 @@
             {% if view.liveblog_enabled %}
                 {% include "liveblog/includes/post_detail.html" %}
             {% endif %}
+
             {% if post.related.exists %}
-                <section class="post-detail-list">
-                {% for related in post.related.all %}
-                    {% include "djangocms_blog/includes/blog_item.html" with post=related image="true" TRUNCWORDS_COUNT=TRUNCWORDS_COUNT %}
-                {% endfor %}
-                </section>
+                {% include "djangocms_blog/includes/card_list.html" with post_list=post.related.all %}
             {% endif %}
         </article>
     </div>
