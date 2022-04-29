@@ -4,8 +4,9 @@
     <a href="{{ post.get_absolute_url }}">
         {% if image and post.main_image %}
         <div class="blog-visual ic">
-            {% thumbnail post.main_image post.thumbnail_options.size crop=post.thumbnail_options.crop upscale=post.thumbnail_options.upscale subject_location=post.main_image.subject_location as thumb %}
-            <img src="{{ thumb.url }}" alt="{{ post.main_image.default_alt_text }}" width="{{ thumb.width }}" height="{{ thumb.height }}" />
+<!--            {% thumbnail post.main_image post.thumbnail_options.size crop=post.thumbnail_options.crop upscale=post.thumbnail_options.upscale subject_location=post.main_image.subject_location as thumb %}-->
+<!--            <img src="{{ post.main_image.url }}" alt="{{ post.main_image.default_alt_text }}" width="{{ thumb.width }}" height="{{ thumb.height }}" />-->
+            <img src="{{ post.main_image.url }}" alt="{{ post.main_image.default_alt_text }}" />
         </div>
         {% else %}
             {% media_images post as previews %}
