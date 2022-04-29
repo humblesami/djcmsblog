@@ -34,7 +34,7 @@
     
         window.lazy_load_images = function() {
             // console.log($('.top-news-container').height(), $('#main-container').height(), 222);
-            let images_to_load = $('img[src="/static/gui/images/waiting-image.svg"],img[src="/static/gui/images/waiting-image-square.svg"]');
+            let images_to_load = $('img[src="/static/website/images/waiting-image.svg"]');
             let pending_image_count = images_to_load.length;
             if (pending_image_count) {                
                 // console.log("loading " + pending_image_count+' images');
