@@ -173,6 +173,7 @@ INSTALLED_APPS = [
 CMS_TEMPLATES = (
     ## Customize this
     ('fullwidth.html', 'Fullwidth'),
+    ('home.html', 'HomePage'),
     ('sidebar_left.html', 'Sidebar Left'),
     ('sidebar_right.html', 'Sidebar Right')
 )
