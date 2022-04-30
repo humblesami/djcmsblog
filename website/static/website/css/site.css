@@ -1,3 +1,127 @@
+body{
+    overflow-x: hidden;
+}
+
+a, button, input[type="button"]{
+    cursor: pointer;
+}
+
+div.cms .cms-toolbar-item-navigation li a{
+    cursor: pointer;
+}
+
+ul.as-selections.vTextField{
+    overflow: hidden;
+}
+.breadcrumb_wrapper ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+.breadcrumb_wrapper ul li{
+    padding: 5px;
+}
+
+.post-detail.tags{
+    margin: 0;
+    list-style: none;
+    display: flex;
+    padding: 0px;
+    margin-bottom: 10px;
+}
+.post-detail.tags li{
+    margin-right: 5px;
+}
+.post-detail.tags li a{
+    color: #2e3192;
+    border: 1px solid #2e3192;
+    border-radius: 0;
+    padding: 0.25rem 0.5rem;
+    line-height: 1.5;
+    text-align: center;
+    vertical-align: middle;
+}
+
+body.rtl p, body.rtl span,
+body.rtl .content, body.rtl .title, body.rtl, body.rtl,
+body.rtl h1, body.rtl h2, body.rtl h3, body.rtl h4, body.rtl h5, body.rtl h6{
+    line-height: 1.7;
+}
+ul{
+    list-style:none;
+    padding:0;
+}
+
+h5{
+    font-weight: bold;
+}
+
+a:hover{
+    color: black;
+}
+img{
+    width: 100%;
+}
+a, button, input[type="submit"], input[type="button"]{
+    cursor: pointer;
+}
+.page-container>.container-fluid>.row>div{
+    width: 100%;
+}
+
+
+.page-container{
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 498px) {
+    .page-container{
+        width: 98%;
+    }
+}
+
+@media screen and (min-width: 499px) {
+    .page-container{
+        max-width: 450px;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .page-container{
+        max-width: 500px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .page-container{
+        max-width: 700px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .page-container{
+        max-width: 980px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .page-container{
+        max-width: 1020px;
+    }
+}
+@media screen and (min-width: 1400px) {
+    .page-container{
+        max-width: 1220px;
+    }
+}
+
+.box-shadow{
+    box-shadow: 0 0 1rem rgba(0,0,0,.15)!important;
+}
+.box-shadow.row, .box-shadow-container{
+    margin-bottom: 15px;
+}
 .breadcrumb_wrapper{
     padding: 5px;
     background: #eee;

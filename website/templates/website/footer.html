@@ -79,20 +79,15 @@
                 </div>
             </div>
         </div>
-        <script async src="/static/website/js/footer.js?v=3"></script>
-        <div id="footer_includes">
-            <link rel="preload" as="style" onload="this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/jquery-floating-social-share@2.4.0/dist/jquery.floating-social-share.min.css">
-            <script defer src="https://cdn.jsdelivr.net/npm/jquery-floating-social-share@2.4.0/dist/jquery.floating-social-share.min.js"></script>
-        </div>
     </div>
 
     <div class="footer-end br-cw text-center">
         92 News HD Plus All Rights Reserved @ <span class="cur_year"></span>
     </div>
-    <script>
-        (function(){
-            $('.cur_year').html(new Date().getFullYear());
-        })()
-    </script>
-    <script defer src="/static/website/plugins/lazy_load.js?v=2"></script>
+    <div id="footer_includes">
+        <link rel="preload" as="style" onload="this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/jquery-floating-social-share@2.4.0/dist/jquery.floating-social-share.min.css">
+        <script defer src="https://cdn.jsdelivr.net/npm/jquery-floating-social-share@2.4.0/dist/jquery.floating-social-share.min.js"></script>
+        <script async src="/static/website/js/footer.js?v=3"></script>
+        <script defer src="/static/website/plugins/site_bottom.js"></script>
+    </div>
 </footer>

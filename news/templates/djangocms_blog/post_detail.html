@@ -4,7 +4,6 @@
 {% block canonical_url %}<link rel="canonical" href="{{ meta.url }}"/>{% endblock canonical_url %}
 {% block title %}{{ post.get_title }}{% endblock %}
 {% block content_blog %}
-<link rel="stylesheet" href="/static/website/css/three_columns.css" />
 <div class="three_columns">
     <div class="column-left">Left Column</div>
     <div class="column-middle">
@@ -29,11 +28,6 @@
                 </div>
                 {% endif %}
             </div>
-            <script>
-                $(function(){
-                    web_utils.fit_image('.full_image .blog-visual.ic');
-                })
-            </script>
             {% block blog_meta %}
                 {% include "djangocms_blog/includes/blog_meta.html" %}
             {% endblock %}
