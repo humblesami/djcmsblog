@@ -15,7 +15,7 @@
         </h2>
     </header>
     {% endblock %}
-    {% include "djangocms_blog/includes/card_list.html" with post_list=post_list %}
+    {% include "djangocms_blog/plugins/latest_entries.html" with post_list=post_list %}
     {% if author or archive_date or tagged_entries %}
     <p class="blog-back"><a href="{% url 'djangocms_blog:posts-latest' %}">{% trans "Back" %}</a></p>
     {% endif %}

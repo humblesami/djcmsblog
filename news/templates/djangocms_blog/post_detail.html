@@ -43,7 +43,7 @@
             {% endif %}
 
             {% if post.related.exists %}
-                {% include "djangocms_blog/includes/card_list.html" with post_list=post.related.all %}
+                {% include "djangocms_blog/plugins/latest_entries.html" with post_list=post.related.all %}
             {% endif %}
         </article>
     </div>

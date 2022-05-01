@@ -1,7 +1,6 @@
 from cms.sitemaps import CMSSitemap
 from django.contrib import admin
 from django.conf import settings
-from django.http import HttpResponse
 from django.urls import include, path
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
@@ -9,12 +8,19 @@ from django.views.generic.base import RedirectView
 from django.contrib.sitemaps.views import sitemap
 from django.contrib.staticfiles.storage import staticfiles_storage
 
+from djangocms_blog.sitemaps import BlogSitemap
 from djcms.views import HomePage
 
 admin.autodiscover()
 
 urlpatterns = [
     path("sitemap.xml", sitemap, {"sitemaps": {"cmspages": CMSSitemap}}),
+    path("post_sitemap.xml", sitemap, {"sitemaps": {"postsitemap": BlogSitemap}}),
+    
+    # path('sitemap.xml', 'django.contrib.sitemaps.views.sitemap', {
+    #     'sitemaps': {'cmspages': CMSSitemap, 'blog': BlogSitemap, }
+    # }),
+    
     path(
         "favicon.ico/",
         RedirectView.as_view(url=staticfiles_storage.url("djcms/favicons/favicon.ico")),

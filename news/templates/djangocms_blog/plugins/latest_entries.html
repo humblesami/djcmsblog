@@ -1,13 +1,11 @@
-{% load i18n %}{% spaceless %}
-<div class="plugin plugin-blog">
-    <div class="row blog_list pt-2">
-    {% for post in posts_list %}
+{% load djangocms_blog i18n easy_thumbnails_tags cms_tags %}
+
+<div class="row blog_list">
+    {% for post in post_list %}
         <div class="col-sm-12 col-md-6 col-lg-4 col-xlg-3">
             {% include "djangocms_blog/includes/blog_item_card.html" with post=post image="true" TRUNCWORDS_COUNT=TRUNCWORDS_COUNT %}
         </div>
     {% empty %}
-    <p class="blog-empty">{% trans "No article found." %}</p>
+            <p class="blog-empty">{% trans "No article found." %}</p>
     {% endfor %}
-    </div>
 </div>
-{% endspaceless %}
