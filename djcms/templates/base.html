@@ -7,7 +7,7 @@
         {% render_block "css" %}
     </head>
     <body>
-        {% include 'website/header.html' %}
+        {% include 'website/includes/header.html' %}
         {% cms_toolbar %}
         <div class="breadcrumb_wrapper">
             <ul>
@@ -17,7 +17,7 @@
         <div class="container">
             {% block content %}{% endblock content %}
         </div>
-        {% include 'website/footer.html' %}
+        {% include 'website/includes/footer.html' %}
         {% render_block "js" %}
     </body>
 </html>

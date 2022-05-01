@@ -119,7 +119,7 @@ INSTALLED_APPS = [
     # 'djangocms_ads',
     'website',
     'djangocms_blog',
-    'cms_site',
+    'djcms',
     'djangocms_admin_style',
     'django.contrib.auth',
     'django.contrib.contenttypes',

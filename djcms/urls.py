@@ -1,12 +1,15 @@
 from cms.sitemaps import CMSSitemap
 from django.contrib import admin
 from django.conf import settings
+from django.http import HttpResponse
 from django.urls import include, path
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
 from django.views.generic.base import RedirectView
 from django.contrib.sitemaps.views import sitemap
 from django.contrib.staticfiles.storage import staticfiles_storage
+
+from djcms.views import HomePage
 
 admin.autodiscover()
 
@@ -22,7 +25,8 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     path("admin/", admin.site.urls),
     path('taggit_autosuggest/', include('taggit_autosuggest.urls')),
-    path("", include("cms.urls")),
+    path("cms/", include("cms.urls")),
+    path("", HomePage.as_view()),
 )
 
 # This is only needed when using runserver.
