@@ -1,55 +1,40 @@
-{% extends "djangocms_blog/base.html" %}
+{% extends post_detail_template %}
 {% load i18n easy_thumbnails_tags cms_tags %}
-
-{% block canonical_url %}<link rel="canonical" href="{{ meta.url }}"/>{% endblock canonical_url %}
-{% block title %}{{ post.get_title }}{% endblock %}
-{% block content_blog %}
-<div class="three_columns">
-    <div class="column-left">Left Column</div>
-    <div class="column-middle">
-        <article id="post-{{ post.slug }}" class="ham post-detail">
-            <header>
-                <h2>{% render_model post "title" %}</h2>
-                {% if post.subtitle %}
-                    <h3>{% render_model post "subtitle" %}</h3>
-                {% endif %}
-            </header>
-            <div class="full_image">
-                {% if not post.main_image_id %}
-                    <div class="row">
-                        <div class="col-12 blog-visual media ic">
-                            {% render_placeholder post.media %}
-                        </div>
+{% block middle_col %}
+    <article id="post-{{ post.slug }}" class="ham post-detail">
+        <header>
+            <h2>{{ post.title }}</h2>
+        </header>
+        <div class="full_image">
+            {% if not post.main_image_id %}
+                <div class="row">
+                    <div class="col-12 blog-visual media ic">
+                        {% render_placeholder post.media %}
                     </div>
-                {% else %}
-                <div class="blog-visual main ic">
-                    {% thumbnail post.main_image post.full_image_options.size crop=post.full_image_options.crop upscale=post.full_image_options.upscale subject_location=post.main_image.subject_location  as thumb %}
-                    <img class="image-center" src="{{ post.main_image.url|default:'' }}" alt="{{ post.main_image.default_alt_text }}" width="{{ thumb.width }}" height="{{ thumb.height }}" />
                 </div>
-                {% endif %}
+            {% else %}
+            <div class="blog-visual main ic">
+                {% thumbnail post.main_image post.full_image_options.size crop=post.full_image_options.crop upscale=post.full_image_options.upscale subject_location=post.main_image.subject_location  as thumb %}
+                <img class="image-center" src="{{ post.main_image.url|default:'' }}" alt="{{ post.main_image.default_alt_text }}" width="{{ thumb.width }}" height="{{ thumb.height }}" />
             </div>
-            {% block blog_meta %}
-                {% include "djangocms_blog/includes/blog_meta.html" %}
-            {% endblock %}
-            <div class="blog-lead">
-                {% if not TRUNCWORDS_COUNT %}
-                    {% render_model post "abstract" "" "" "safe" %}
-                {% else %}
-                    {% render_model post "abstract" "" "" "truncatewords_html:TRUNCWORDS_COUNT|safe"  %}
-                {% endif %}
-            </div>
-            {% if view.liveblog_enabled %}
-                {% include "liveblog/includes/post_detail.html" %}
             {% endif %}
-
-            {% if post.related.exists %}
-                {% include "djangocms_blog/plugins/latest_entries.html" with post_list=post.related.all %}
+        </div>
+        {% block blog_meta %}
+            {% include "djangocms_blog/includes/blog_meta.html" %}
+        {% endblock %}
+        <div class="blog-lead">
+            {% if not TRUNCWORDS_COUNT %}
+                {% render_model post "abstract" "" "" "safe" %}
+            {% else %}
+                {% render_model post "abstract" "" "" "truncatewords_html:TRUNCWORDS_COUNT|safe"  %}
             {% endif %}
-        </article>
-    </div>
-    <div class="column-right">Right Column</div>
-</div>
-{% endblock content_blog %}
+        </div>
+        {% if view.liveblog_enabled %}
+            {% include "liveblog/includes/post_detail.html" %}
+        {% endif %}
 
-
-
+        {% if post.related.exists %}
+            {% include "djangocms_blog/plugins/latest_entries.html" with post_list=post.related.all %}
+        {% endif %}
+    </article>
+{% endblock middle_col %}

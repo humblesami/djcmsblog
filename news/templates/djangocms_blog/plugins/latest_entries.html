@@ -2,7 +2,7 @@
 
 <div class="row blog_list">
     {% for post in post_list %}
-        <div class="col-sm-12 col-md-6 col-lg-4 col-xlg-3">
+        <div class="col-xsm-12 col-sm-6 col-md-4 col-lg-3">
             {% include "djangocms_blog/includes/blog_item_card.html" with post=post image="true" TRUNCWORDS_COUNT=TRUNCWORDS_COUNT %}
         </div>
     {% empty %}

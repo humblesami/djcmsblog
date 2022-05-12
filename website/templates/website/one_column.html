@@ -1,0 +1,10 @@
+{% extends "djangocms_blog/base.html" %}
+{% block canonical_url %}<link rel="canonical" href="{{ meta.url }}"/>{% endblock canonical_url %}
+{% block title %}{{ post.get_title }}{% endblock %}
+{% block content_blog %}
+<div class="three_columns row">
+    <div class="col">
+        {% block middle_col %}{% endblock middle_col %}
+    </div>
+</div>
+{% endblock content_blog %}

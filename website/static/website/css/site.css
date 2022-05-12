@@ -2,6 +2,20 @@ body{
     overflow-x: hidden;
 }
 
+@media (min-width: 100px) {
+  h1 {font-size:calc(2vw + 12px);}
+  h2 {font-size:calc(1.8vw + 12px);}
+  h3 {font-size:calc(1.6vw + 12px);}
+  h4 {font-size:calc(1.4vw + 12px);}
+  h5 {font-size:calc(1.2vw + 12px);}
+  h6 {font-size:calc(1vw + 12px);}
+}
+
+.three_columns>div{
+    border: 1px solid;
+    padding: 5px;
+}
+
 a, button, input[type="button"]{
     cursor: pointer;
 }

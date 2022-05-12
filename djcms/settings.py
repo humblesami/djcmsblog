@@ -98,22 +98,6 @@ TEMPLATES = [
 ]
 
 
-MIDDLEWARE = [
-    'cms.middleware.utils.ApphookReloadMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'cms.middleware.user.CurrentUserMiddleware',
-    'cms.middleware.page.CurrentPageMiddleware',
-    'cms.middleware.toolbar.ToolbarMiddleware',
-    'cms.middleware.language.LanguageCookieMiddleware',
-    'news.middleware.LayoutMiddleWare'
-]
-
 INSTALLED_APPS = [
     'news',
     # 'djangocms_ads',
@@ -166,8 +150,26 @@ INSTALLED_APPS = [
     'djangocms_style',
     'djangocms_googlemap',
     'djangocms_video',
+    # 'django_user_agents',
     # 'channels',
     # 'knocker',
+]
+
+MIDDLEWARE = [
+    'cms.middleware.utils.ApphookReloadMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
+    'cms.middleware.language.LanguageCookieMiddleware',
+    'news.middleware.LayoutMiddleWare'
+    # 'django_user_agents.middleware.UserAgentMiddleware',
 ]
 
 CMS_TEMPLATES = (
@@ -250,6 +252,14 @@ META_SITE_PROTOCOL = config_data['META_SITE_PROTOCOL']
 META_SITE_DOMAIN = config_data['domain']
 META_USE_SITES = True
 
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+#     },
+#     'LOCATION': [config_data['domain']]
+# }
+# USER_AGENTS_CACHE = 'default'
+# USER_AGENTS_CACHE = 'default'
 LANGUAGES = (
     ## Customize this
     ('en', gettext('en')),
