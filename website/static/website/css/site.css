@@ -7,16 +7,17 @@ h1, h2{
 .main.container{
     border: 1px solid #eee;
 }
+.column-middle{
+    padding-left: 0;
+}
 .page-container>div:first-child{
     border-right: 1px solid;
 }
-.page-container>div{
-    padding: 10px;
-    font-size:20px;
-}
+
 .page-container.row{
     margin-left: 0;
     margin-right: 0;
+    padding: 10px 0;
 }
 h3.title{
     font-size: 20px;

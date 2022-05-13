@@ -1,5 +1,8 @@
 from django.utils.deprecation import MiddlewareMixin
 from user_agents import parse
+
+from djangocms_blog.models import Post
+from news.models import NewsPost
 from website.models import Menu
 
 
@@ -48,7 +51,7 @@ class LayoutMiddleWare(MiddlewareMixin):
             # chosen_template = self.__class__.get_template(ua_string)
             # if chosen_template.endswith('two_columns.html'):
             #     additional['left_col'] = {}
-            #     additional['right_col'] = {}
+            side_data = NewsPost.objects.filter(side_bar=1)[:8]
             additional['chosen_template'] = chosen_template
             response.context_data.update(additional)
         return response
