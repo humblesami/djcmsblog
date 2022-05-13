@@ -14,10 +14,10 @@
                 {% show_breadcrumb %}
             </ul>
         </div>
-        <div class="container">
+        <div class="container main">
             {% block content %}{% endblock content %}
+            {% include 'website/includes/footer.html' %}
         </div>
-        {% include 'website/includes/footer.html' %}
         {% render_block "js" %}
     </body>
 </html>

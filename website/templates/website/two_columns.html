@@ -2,9 +2,10 @@
 {% block canonical_url %}<link rel="canonical" href="{{ meta.url }}"/>{% endblock canonical_url %}
 {% block title %}{{ post.get_title }}{% endblock %}
 {% block content_blog %}
-<div class="page-container one-col row">
-    <div class="col">
+<div class="page-container multi-col row">
+    <div class="column-middle col-sm-12 col-lg-9">
         {% block middle_col %}{% endblock middle_col %}
     </div>
+    <div class="col-sm-12 col-lg-3">{% block right_col %}{% endblock right_col %}</div>
 </div>
 {% endblock content_blog %}

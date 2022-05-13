@@ -31,22 +31,25 @@ class LayoutMiddleWare(MiddlewareMixin):
         return labels
 
     @classmethod
-    def get_post_detail_template(cls, ua_string):
-        post_detail_template = "website/three_columns.html"
+    def get_template(cls, ua_string):
+        template = "website/two_columns.html"
         user_agent = parse(ua_string)
         if user_agent.is_mobile:
-            post_detail_template = "website/one_column.html"
-        return post_detail_template
+            template = "website/one_column.html"
+        return template
     
     def process_template_response(self, request, response):
         req_path = request.path
         if not req_path.startswith('/admin'):
             additional = self.add_menu_to_response()
             additional['translations'] = self.__class__.get_translations()
-            
-            if response.template_name == 'djangocms_blog/post_detail.html':
-                ua_string = request.META.get('HTTP_USER_AGENT')
-                additional['post_detail_template'] = self.__class__.get_post_detail_template(ua_string)
+            ua_string = request.META.get('HTTP_USER_AGENT')
+            chosen_template = "website/two_columns.html"
+            # chosen_template = self.__class__.get_template(ua_string)
+            # if chosen_template.endswith('two_columns.html'):
+            #     additional['left_col'] = {}
+            #     additional['right_col'] = {}
+            additional['chosen_template'] = chosen_template
             response.context_data.update(additional)
         return response
     

@@ -1,4 +1,4 @@
-{% extends post_detail_template %}
+{% extends "djangocms_blog/base.html" %}
 {% load i18n easy_thumbnails_tags cms_tags %}
 {% block middle_col %}
     <article id="post-{{ post.slug }}" class="ham post-detail">

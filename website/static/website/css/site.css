@@ -1,25 +1,33 @@
 body{
     overflow-x: hidden;
 }
-
-@media (min-width: 100px) {
-  h1 {font-size:calc(2vw + 12px);}
-  h2 {font-size:calc(1.8vw + 12px);}
-  h3 {font-size:calc(1.6vw + 12px);}
-  h4 {font-size:calc(1.4vw + 12px);}
-  h5 {font-size:calc(1.2vw + 12px);}
-  h6 {font-size:calc(1vw + 12px);}
+h1, h2{
+    text-transform: capitalize;
 }
-
-.three_columns>div{
-    border: 1px solid;
-    padding: 5px;
+.main.container{
+    border: 1px solid #eee;
+}
+.page-container>div:first-child{
+    border-right: 1px solid;
+}
+.page-container>div{
+    padding: 10px;
+    font-size:20px;
+}
+.page-container.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+h3.title{
+    font-size: 20px;
 }
 
 a, button, input[type="button"]{
     cursor: pointer;
 }
-
+.footer_container{
+    padding: 15px;
+}
 div.cms .cms-toolbar-item-navigation li a{
     cursor: pointer;
 }
@@ -79,55 +87,6 @@ img{
 }
 a, button, input[type="submit"], input[type="button"]{
     cursor: pointer;
-}
-.page-container>.container-fluid>.row>div{
-    width: 100%;
-}
-
-
-.page-container{
-    margin: 0 auto;
-}
-
-@media screen and (max-width: 498px) {
-    .page-container{
-        width: 98%;
-    }
-}
-
-@media screen and (min-width: 499px) {
-    .page-container{
-        max-width: 450px;
-    }
-}
-
-@media screen and (min-width: 576px) {
-    .page-container{
-        max-width: 500px;
-    }
-}
-
-@media screen and (min-width: 768px) {
-    .page-container{
-        max-width: 700px;
-    }
-}
-
-@media screen and (min-width: 992px) {
-    .page-container{
-        max-width: 980px;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    .page-container{
-        max-width: 1020px;
-    }
-}
-@media screen and (min-width: 1400px) {
-    .page-container{
-        max-width: 1220px;
-    }
 }
 
 .box-shadow{
